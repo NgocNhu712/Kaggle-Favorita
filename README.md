@@ -30,16 +30,16 @@ About:
   +Additional ngày lễ là những ngày được thêm vào một ngày lễ theo lịch thông thường, chẳng hạn như thường xảy ra vào khoảng lễ Giáng sinh (biến đêm Giáng sinh thành một ngày lễ).
 # Data Exploration
 Các bước thực hiện:
-_Number of rows/columns
-_Check for missing values
-_Histogram plot
-_Summary All analysis should be applied to whole data set
++Number of rows/columns
++Check for missing values
++Histogram plot
++Summary All analysis should be applied to whole data set
 Links:
-_Stores
-_Holiday
-_Transaction
-_Oil
-_Items
++Stores
++Holiday
++Transaction
++Oil
++Items
 
 
 
