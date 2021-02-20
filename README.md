@@ -32,25 +32,25 @@ About:
 # Data Exploration
 Các bước thực hiện:
 
-+Number of rows/columns
+_Number of rows/columns
 
-+Check for missing values
+_Check for missing values
 
-+Histogram plot
+_Histogram plot
 
-+Summary All analysis should be applied to whole data set
+_Summary All analysis should be applied to whole data set
 
 Links:
 
-+Stores
+_Stores
 
-+Holiday
+_Holiday
 
-+Transaction
+_Transaction
 
-+Oil
+_Oil
 
-+Items
+_Items
 
 
 
