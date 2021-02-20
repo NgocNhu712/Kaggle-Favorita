@@ -3,6 +3,7 @@
 Corporacion Favorita grocery sales prediction competition
 # Data
 Source: https://www.kaggle.com/c/favorita-grocery-sales-forecasting/data
+
 About:
  1. Train: bao gồm các cột là id, date, store_nbr, item_nbr, unit_sales, onpromotion
   +Cột id là số thứ tự
@@ -30,15 +31,25 @@ About:
   +Additional ngày lễ là những ngày được thêm vào một ngày lễ theo lịch thông thường, chẳng hạn như thường xảy ra vào khoảng lễ Giáng sinh (biến đêm Giáng sinh thành một ngày lễ).
 # Data Exploration
 Các bước thực hiện:
+
 +Number of rows/columns
+
 +Check for missing values
+
 +Histogram plot
+
 +Summary All analysis should be applied to whole data set
+
 Links:
+
 +Stores
+
 +Holiday
+
 +Transaction
+
 +Oil
+
 +Items
 
 
