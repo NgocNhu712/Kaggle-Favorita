@@ -65,15 +65,15 @@ _Summary All analysis should be applied to whole data set
 
 Links:
 
-_Stores: http://localhost:8888/notebooks/Kaggle%20Favorita/Stores.ipynb
+_Stores( Ngọc Như): http://localhost:8888/notebooks/Kaggle%20Favorita/Stores.ipynb
 
-_Holiday:http://localhost:8888/notebooks/Kaggle%20Favorita/Holiday.ipynb# 
+_Holiday( Ngọc Như):http://localhost:8888/notebooks/Kaggle%20Favorita/Holiday.ipynb# 
 
-_Transaction: http://localhost:8888/notebooks/Kaggle%20Favorita/Transactions.ipynb#
+_Transaction( Thùy Dung): http://localhost:8888/notebooks/Kaggle%20Favorita/Transactions.ipynb#
 
-_Oil: http://localhost:8888/notebooks/Kaggle%20Favorita/Oil.ipynb#
+_Oil( Khánh Hồng): http://localhost:8888/notebooks/Kaggle%20Favorita/Oil.ipynb#
 
-_Items: http://localhost:8888/notebooks/Kaggle%20Favorita/Items.ipynb#
+_Items( Phương Linh): http://localhost:8888/notebooks/Kaggle%20Favorita/Items.ipynb#
 
 
 
