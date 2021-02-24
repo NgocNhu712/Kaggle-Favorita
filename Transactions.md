@@ -1,37 +1,8 @@
-
-
 ```python
 import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-
-# Input data files are available in the read-only "../input/" directory
-# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
-
+import pandas as pd # data processing
+from statsmodels.tsa.stattools import adfuller
 ```
-
-
-```python
-!pip install py7zr
-import py7zr
-```
-
-    Collecting py7zr
-      Downloading py7zr-0.13.0-py3-none-any.whl (65 kB)
-    Collecting pycryptodome
-      Downloading pycryptodome-3.10.1-cp35-abi3-win_amd64.whl (1.6 MB)
-    Collecting texttable
-      Downloading texttable-1.6.3-py2.py3-none-any.whl (10 kB)
-    Collecting ppmd-cffi<0.4.0,>=0.3.1
-      Downloading ppmd_cffi-0.3.3-cp38-cp38-win_amd64.whl (44 kB)
-    Collecting zstandard
-      Downloading zstandard-0.15.1-cp38-cp38-win_amd64.whl (582 kB)
-    Collecting multivolumefile<0.2.0,>=0.1.1
-      Downloading multivolumefile-0.1.3-py3-none-any.whl (15 kB)
-    Requirement already satisfied: cffi>=1.14.0 in c:\users\pc\anaconda3\lib\site-packages (from ppmd-cffi<0.4.0,>=0.3.1->py7zr) (1.14.0)
-    Requirement already satisfied: pycparser in c:\users\pc\anaconda3\lib\site-packages (from cffi>=1.14.0->ppmd-cffi<0.4.0,>=0.3.1->py7zr) (2.20)
-    Installing collected packages: pycryptodome, texttable, ppmd-cffi, zstandard, multivolumefile, py7zr
-    Successfully installed multivolumefile-0.1.3 ppmd-cffi-0.3.3 py7zr-0.13.0 pycryptodome-3.10.1 texttable-1.6.3 zstandard-0.15.1
-    
 
 
 ```python
@@ -235,17 +206,17 @@ for i in range(0, len(trans_columns)):
 
     *** date ***
     1682 개
-    2017-06-04    54
-    2017-08-02    54
-    2017-07-11    54
-    2017-07-03    54
-    2017-07-15    54
+    2017-04-24    54
+    2017-05-13    54
+    2017-07-18    54
+    2017-06-22    54
+    2017-07-12    54
                   ..
     2016-01-04    14
     2014-01-01     2
-    2015-01-01     1
     2013-01-01     1
     2017-01-01     1
+    2015-01-01     1
     Name: date, Length: 1682, dtype: int64
     *** store_nbr ***
     54 개
@@ -398,28 +369,49 @@ ax.set_xticklabels(ax.get_xticklabels(), rotation = 75, fontsize = 9)
 
 
 
-![png](output_10_1.png)
+![png](output_9_1.png)
 
+
+# Kiểm định tính dừng của chuỗi dữ liệu
 
 
 ```python
-
+## KIỂM ĐỊNH DICKEY FULLER:
+result = adfuller(df_trans['transactions'])
+print('ADF Statistic: {}'.format(result[0]))
+print('p-value: {}'.format(result[1]))
+print('Critical Values:')
+for key, value in result[4].items():
+    print('\t{}: {}'.format(key, value))
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-19-598f233fba87> in <module>
-    ----> 1 amount_trans = pd.merge(amount, df_stores, left_on='store_nbr', right_on='store_nbr', how='left')
-          2 amount_trans.sort_values(by=['transactions'], ascending=False)
+    ADF Statistic: -16.574217214485696
+    p-value: 1.8586138868792179e-29
+    Critical Values:
+    	1%: -3.4304283896674406
+    	5%: -2.8615746469290144
+    	10%: -2.566788441361157
     
 
-    NameError: name 'df_stores' is not defined
-
-
 
 ```python
+def adfuller_test(df_trans):
+    result=adfuller(df_trans)
+    labels = ['ADF Test Statistic','p-value','#Lags Used','Number of Observations']
+    for value,label in zip(result,labels):
+        print(label+' : '+str(value) )
 
+if result[1] <= 0.05:
+    print("Strong evidence against the null hypothesis(Ho), reject the null hypothesis. Data is stationary (Chuỗi dừng)")
+else:
+    print("Weak evidence against null hypothesis,indicating it is non-stationary (Chuỗi không dừng) ")
+
+adfuller_test(df_trans['transactions'])
 ```
+
+    Strong evidence against the null hypothesis(Ho), reject the null hypothesis. Data is stationary (Chuỗi dừng)
+    ADF Test Statistic : -16.574217214485696
+    p-value : 1.8586138868792179e-29
+    #Lags Used : 64
+    Number of Observations : 83423
+    
